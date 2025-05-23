@@ -1,0 +1,5 @@
+@layer base {
+    body {
+        @apply font-poppins cursor-default overflow-hidden scroll-smooth bg-neutral-800 font-normal select-none;
+    }
+}
