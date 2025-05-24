@@ -12,7 +12,7 @@ export const SearchBar = ({ searchInputRef, searchHandler }) => {
                 </div>
                 <input
                     ref={searchInputRef}
-                    className="h-full w-full rounded-full border border-neutral-500 bg-neutral-700 py-2 pr-4 pl-12 text-sm text-neutral-500 transition-colors duration-300 outline-none group-focus-within:border-neutral-300 group-focus-within:text-neutral-300 group-focus-within:duration-300 placeholder:text-neutral-500 md:text-base"
+                    className="h-full w-full rounded-full border border-neutral-500/40 bg-neutral-700 py-2 pr-4 pl-12 text-sm text-neutral-500 transition-colors duration-300 outline-none group-focus-within:border-neutral-300/40 group-focus-within:text-neutral-300 group-focus-within:duration-300 placeholder:text-neutral-500 md:text-base"
                     type="text"
                     name="search"
                     placeholder="Search for cities or countries..."
