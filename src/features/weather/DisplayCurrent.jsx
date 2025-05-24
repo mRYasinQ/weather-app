@@ -1,8 +1,10 @@
-import { TempCurrentLocation } from './TempCurrentLocation';
-import { SingleBoxData } from './SingleBoxData';
+import { WideCard } from './WideCard';
+import { SmallCard } from './SmallCard';
 
 import { WindHighIcon } from '../../icons/WindHighIcon';
 import { HumidityIcon } from '../../icons/HumidityIcon';
+import { ArrowBottomIcon } from '../../icons/ArrowBottomIcon';
+import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
 
 export const DisplayCurrent = ({
     weatherData: {
@@ -21,18 +23,21 @@ export const DisplayCurrent = ({
                     </p>
                 </div>
                 <div className="flex flex-col items-center gap-2 lg:basis-2/3 lg:flex-row">
-                    <TempCurrentLocation
-                        feelsLike={current.feelslike_c}
-                        minTemp={forecastday[0].day.mintemp_c}
-                        maxTemp={forecastday[0].day.maxtemp_c}
+                    <WideCard
+                        label={`Feels Like ${current.feelslike_c}°`}
+                        leftData={{
+                            icon: <ArrowBottomIcon />,
+                            label: 'Min',
+                            value: `${forecastday[0].day.mintemp_c}°`,
+                        }}
+                        rightData={{
+                            icon: <ArrowUpIcon />,
+                            label: 'Max',
+                            value: `${forecastday[0].day.maxtemp_c}°`,
+                        }}
                     />
-                    <SingleBoxData
-                        label="Wind Speed"
-                        icon={<WindHighIcon />}
-                        data={current.wind_kph}
-                        dataLabel="km/h"
-                    />
-                    <SingleBoxData label="Humidity" icon={<HumidityIcon />} data={current.humidity} dataLabel="%" />
+                    <SmallCard label="Wind Speed" icon={<WindHighIcon />} value={current.wind_kph} valueLabel="km/h" />
+                    <SmallCard label="Humidity" icon={<HumidityIcon />} value={current.humidity} valueLabel="%" />
                 </div>
             </div>
         </div>

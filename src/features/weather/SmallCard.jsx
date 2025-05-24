@@ -1,4 +1,4 @@
-export const SingleBoxData = ({ label, icon, data, dataLabel }) => {
+export const SmallCard = ({ label, icon, value, valueLabel }) => {
     return (
         <div className="flex h-fit w-full flex-col justify-between gap-2 rounded-3xl border border-neutral-500/40 bg-white/3 p-6">
             <h4 className="text-md font-light text-orange-400/70">{label}</h4>
@@ -8,8 +8,8 @@ export const SingleBoxData = ({ label, icon, data, dataLabel }) => {
                         {icon}
                     </div>
                 </div>
-                <span className="text-4xl font-semibold text-neutral-300">{data}</span>
-                <span className="text-lg font-normal whitespace-nowrap text-neutral-500">{dataLabel}</span>
+                <span className="text-4xl font-semibold text-neutral-300">{value}</span>
+                <span className="text-lg font-normal whitespace-nowrap text-neutral-500">{valueLabel}</span>
             </div>
         </div>
     );
