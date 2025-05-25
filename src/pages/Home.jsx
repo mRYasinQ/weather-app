@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
 import useIp from '../hooks/useIp';
+import { useGetForecastDataQuery } from '../app/services/weatherApi';
 
 import { Header } from '../components/Header';
 import { CurrentLocation } from '../features/weather/CurrentLocation';
@@ -8,15 +9,16 @@ import { CurrentLocation } from '../features/weather/CurrentLocation';
 export default function Home() {
     const searchInputRef = useRef(null);
 
-    const { ip, isLoading: isLoadingIp, ipError } = useIp();
+    const { ip } = useIp();
+    const { data: weatherData, isSuccess: weatherDataSuccess } = useGetForecastDataQuery(ip, { skip: !ip });
 
-    async function searchHandler(e) {}
+    function searchHandler(e) {}
 
     return (
         <>
             <Header searchInputRef={searchInputRef} searchHandler={searchHandler} />
             <main className="container flex flex-col gap-6">
-                {!isLoadingIp && !ipError && <CurrentLocation ip={ip} />}
+                {weatherDataSuccess && <CurrentLocation weatherData={weatherData} />}
             </main>
         </>
     );
