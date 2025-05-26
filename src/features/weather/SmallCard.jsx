@@ -1,6 +1,14 @@
-export const SmallCard = ({ label, icon, value, valueLabel }) => {
+import clsx from 'clsx';
+
+export const SmallCard = ({ label, icon, value, valueLabel, hoverStyle = false }) => {
     return (
-        <div className="flex h-fit w-full flex-col justify-between gap-2 rounded-3xl border border-neutral-500/40 bg-white/3 p-6">
+        <div
+            className={clsx(
+                'flex h-fit w-full flex-col justify-between gap-2 rounded-3xl border border-neutral-500/40 bg-white/3 p-6',
+                hoverStyle &&
+                    'duration-300 hover:border-neutral-300/40 hover:bg-white/10 hover:shadow-md hover:shadow-neutral-300/20 hover:duration-300',
+            )}
+        >
             <h4 className="text-md font-light text-orange-400/70">{label}</h4>
             <div className="flex items-end gap-1">
                 <div className="flex h-full items-center">

@@ -17,7 +17,7 @@ export const CurrentLocation = ({
         <div className="h-fit w-full rounded-4xl border border-neutral-500/40 bg-gradient-to-t from-sky-600/25 from-45% to-sky-800/10 to-100% px-6 py-5 md:px-12 md:py-10">
             <div className="flex flex-col gap-1 lg:flex-row lg:items-center">
                 <div className="flex flex-col gap-1 py-4 lg:basis-1/3">
-                    <h3 className="gap-2 text-sm font-light text-neutral-500">Your current location</h3>
+                    <h3 className="text-sm font-light text-neutral-500">Your current location</h3>
                     <p className="flex flex-col text-4xl text-neutral-300">
                         {location.name},<span>{location.country}</span>
                     </p>
