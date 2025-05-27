@@ -6,6 +6,7 @@ import { useGetForecastDataQuery } from '../app/services/weatherApi';
 
 import { Header } from '../components/Header';
 import { CurrentLocation } from '../features/weather/CurrentLocation';
+import { CurrentLocationError } from '../features/weather/CurrentLocationError';
 import { DisplayWeather } from '../features/weather/DisplayWeather';
 
 export default function Home() {
@@ -21,7 +22,12 @@ export default function Home() {
         <>
             <Header />
             <main className="container flex flex-col gap-6">
-                {!searched && currentWeatherDataSuccess && <CurrentLocation weatherData={currentWeatherData} />}
+                {!searched &&
+                    (currentWeatherDataSuccess ? (
+                        <CurrentLocation weatherData={currentWeatherData} />
+                    ) : (
+                        <CurrentLocationError />
+                    ))}
                 {searched && weatherData && <DisplayWeather weatherData={weatherData} />}
             </main>
         </>

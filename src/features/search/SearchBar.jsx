@@ -30,7 +30,7 @@ export const SearchBar = () => {
             lastRequestRef.current = abort;
 
             setShowResult(true);
-        }, 500);
+        }, 300);
 
         return () => {
             if (lastRequestRef.current) lastRequestRef.current();
