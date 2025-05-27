@@ -14,7 +14,11 @@ export default function Home() {
 
     const { ip } = useIp();
 
-    const { data: currentWeatherData, isSuccess: currentWeatherDataSuccess } = useGetForecastDataQuery(ip, {
+    const {
+        data: currentWeatherData,
+        isSuccess: currentWeatherDataSuccess,
+        error: currentWeatherDataError,
+    } = useGetForecastDataQuery(ip, {
         skip: !ip,
     });
 
@@ -26,7 +30,7 @@ export default function Home() {
                     (currentWeatherDataSuccess ? (
                         <CurrentLocation weatherData={currentWeatherData} />
                     ) : (
-                        <CurrentLocationError />
+                        typeof currentWeatherDataError !== 'undefined' && <CurrentLocationError />
                     ))}
                 {searched && weatherData && <DisplayWeather weatherData={weatherData} />}
             </main>
